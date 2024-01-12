@@ -1,14 +1,20 @@
+import { useFilter } from "../hooks/useFilter";
 import arrowImgUrl from "../assets/arrow.svg";
 
 const FilterSelect = () => {
+  const { filterOption, setFilterOption } = useFilter();
+
   return (
     <div className="w-100px relative sm:w-[200px]">
       <select
         id="filter-select"
-        onChange={() => {}}
+        value={filterOption}
+        onChange={(e) => {
+          setFilterOption(e.target.value);
+        }}
         className="h-10 w-full appearance-none border-b-2 border-gray-200 bg-transparent px-2 font-mono text-sm text-white outline-none hover:cursor-pointer sm:ml-3 sm:text-base"
       >
-        <option value="">Filter</option>
+        <option value="Default">Filter</option>
         <option value="Completed">Completed</option>
         <option value="Incompleted">Incompleted</option>
       </select>

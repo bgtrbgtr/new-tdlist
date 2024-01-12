@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AppContext } from "../contexts/AppContext";
 
-const AddTodo = () => {
+const AddTask = () => {
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
+  const { addTask } = useContext(AppContext);
 
   //limit the number of lines in a textarea while changing value
   const handleNewTodoInput = (event) => {
@@ -14,6 +16,18 @@ const AddTodo = () => {
       ) + "px";
 
     setTaskDescription(event.target.value);
+  };
+
+  const handleNewTaskSubmit = () => {
+    const newTask = {
+      id: Math.random().toString(36).substring(2, 9),
+      title: taskName,
+      description: taskDescription,
+      completed: false,
+      isDisplayed: true,
+    };
+
+    addTask(newTask);
   };
 
   return (
@@ -47,6 +61,7 @@ const AddTodo = () => {
           className="mx-auto rounded-md bg-white p-2 text-xs font-light hover:bg-blue-600 hover:text-white active:bg-blue-700 sm:w-3/12"
           onClick={(e) => {
             e.preventDefault();
+            handleNewTaskSubmit();
 
             // Return textarea height to default value in case it was increased by input
             const textarea = document.querySelector("#textarea");
@@ -64,4 +79,4 @@ const AddTodo = () => {
   );
 };
 
-export default AddTodo;
+export default AddTask;

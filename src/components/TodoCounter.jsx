@@ -1,10 +1,12 @@
+import { useContext } from "react";
+import { AppContext } from "../contexts/AppContext";
+
 const TodoCounter = () => {
-  // const completed = store.todos.filter((todo) => todo.completed);
-  const completed = [1, 2];
-  const todos = [1, 2, 3];
+  const { tasks } = useContext(AppContext);
+  const completed = tasks.filter((task) => task.completed);
 
   return (
-    <p className="ml-auto text-3xl font-extralight text-white sm:ml-3">{`${completed.length}/${todos.length}`}</p>
+    <p className="ml-auto text-3xl font-extralight text-white sm:ml-3">{`${completed.length}/${tasks.length}`}</p>
   );
 };
 

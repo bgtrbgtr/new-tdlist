@@ -1,4 +1,4 @@
-import AddTodo from "./AddTodo";
+import AddTask from "./AddTask";
 import CompleteButton from "./CompleteButton";
 import DeleteButton from "./DeleteButton";
 import TodoList from "./TodoList";
@@ -7,11 +7,10 @@ import TodoItem from "./TodoItem";
 import Modal from "./Modal";
 import TodoCounter from "./TodoCounter";
 import EditButton from "./EditButton";
-import DetailedView from "./DetailedView";
 import FilterSelect from "./FilterSelect";
 
 export {
-  AddTodo,
+  AddTask,
   CompleteButton,
   DeleteButton,
   TodoList,
@@ -20,6 +19,5 @@ export {
   Modal,
   TodoCounter,
   EditButton,
-  DetailedView,
   FilterSelect,
 };
