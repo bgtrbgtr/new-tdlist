@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AddTask, Header, TodoList, Modal } from ".";
 import { AppContext } from "../contexts/AppContext";
-import useTaskList from "../hooks/useTaskList";
+import { useTaskList } from "../hooks";
 import { taskFunctions } from "../utils/taskUtils";
 
 function App() {

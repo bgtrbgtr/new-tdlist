@@ -25,7 +25,7 @@ const CompleteButton = ({ task }) => {
     <Button
       ariaLabel={"Complete task"}
       onClick={handleOnClick}
-      img={task.completed ? `${incompleteImgUrl}` : `${completeImgUrl}`}
+      img={`${task.completed ? incompleteImgUrl : completeImgUrl}`}
     />
   );
 };

@@ -1,4 +1,4 @@
-import { useFilter } from "../hooks/useFilter";
+import { useFilter } from "../hooks";
 import arrowImgUrl from "../assets/arrow.svg";
 
 const FilterSelect = () => {

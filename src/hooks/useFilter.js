@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../contexts/AppContext";
-import { handleFilterChange } from "../utils/filter";
+import { handleFilterChange } from "../utils/filterUtils";
 
 const useFilter = () => {
   const { tasks, updateTask } = useContext(AppContext);
@@ -23,4 +23,4 @@ const useFilter = () => {
   return { filterOption, setFilterOption };
 };
 
-export { useFilter };
+export default useFilter;

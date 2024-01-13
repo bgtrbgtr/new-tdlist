@@ -9,6 +9,7 @@ import TodoCounter from "./TodoCounter";
 import EditButton from "./EditButton";
 import FilterSelect from "./FilterSelect";
 import Button from "./Button";
+import ShowDeletedButton from "./ShowDeletedButton";
 
 export {
   AddTask,
@@ -22,4 +23,5 @@ export {
   EditButton,
   FilterSelect,
   Button,
+  ShowDeletedButton,
 };
