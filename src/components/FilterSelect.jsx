@@ -8,7 +8,7 @@ const FilterSelect = () => {
     <div className="w-100px relative sm:w-[200px]">
       <select
         id="filter-select"
-        value={filterOption}
+        value={filterOption ?? ""}
         onChange={(e) => {
           setFilterOption(e.target.value);
         }}

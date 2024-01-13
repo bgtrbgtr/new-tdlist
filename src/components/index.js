@@ -10,6 +10,9 @@ import EditButton from "./EditButton";
 import FilterSelect from "./FilterSelect";
 import Button from "./Button";
 import ShowDeletedButton from "./ShowDeletedButton";
+import DeletedList from "./DeletedList";
+import EditorForm from "./EditorForm";
+import DeletedItem from "./DeletedItem";
 
 export {
   AddTask,
@@ -24,4 +27,7 @@ export {
   FilterSelect,
   Button,
   ShowDeletedButton,
+  DeletedList,
+  EditorForm,
+  DeletedItem,
 };

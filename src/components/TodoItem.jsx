@@ -10,7 +10,6 @@ const TodoItem = ({ task }) => {
       } flex w-full flex-col rounded-md border-b border-gray-300 p-3 last:border-none`}
     >
       <p
-        onClick={() => {}}
         className={`${
           task.completed ? "text-gray-200" : ""
         } text-middle w-fit max-w-full truncate font-medium`}
@@ -26,7 +25,7 @@ const TodoItem = ({ task }) => {
       </p>
       <div className="flex w-1/4 min-w-fit gap-3">
         <CompleteButton task={task} />
-        <DeleteButton id={task.id} />
+        <DeleteButton task={task} />
         <EditButton task={task} />
       </div>
     </div>

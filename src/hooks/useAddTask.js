@@ -18,7 +18,8 @@ const useAddTask = () => {
     setTaskDescription(event.target.value);
   };
 
-  const handleNewTaskSubmit = () => {
+  const handleNewTaskSubmit = (e) => {
+    e.preventDefault();
     const newTask = {
       id: Math.random().toString(36).substring(2, 9),
       title: taskName,
@@ -28,6 +29,14 @@ const useAddTask = () => {
     };
 
     addTask(newTask);
+
+    // Return textarea height to default value in case it was increased by input
+    const textarea = document.querySelector("#textarea");
+    textarea?.setAttribute("style", "height: 40px");
+
+    // Set inputs to initial values
+    setTaskName("");
+    setTaskDescription("");
   };
 
   return {

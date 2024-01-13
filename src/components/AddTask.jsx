@@ -5,7 +5,6 @@ const AddTask = () => {
     taskName,
     setTaskName,
     taskDescription,
-    setTaskDescription,
     handleNewTodoInput,
     handleNewTaskSubmit,
   } = useAddTask();
@@ -39,18 +38,7 @@ const AddTask = () => {
           type="submit"
           aria-label={`Add new item to list`}
           className="mx-auto rounded-md bg-white p-2 text-xs font-light hover:bg-blue-600 hover:text-white active:bg-blue-700 sm:w-3/12"
-          onClick={(e) => {
-            e.preventDefault();
-            handleNewTaskSubmit();
-
-            // Return textarea height to default value in case it was increased by input
-            const textarea = document.querySelector("#textarea");
-            textarea?.setAttribute("style", "height: 40px");
-
-            // Set inputs to initial values
-            setTaskName("");
-            setTaskDescription("");
-          }}
+          onClick={(e) => handleNewTaskSubmit(e)}
         >
           {`Add new item`}
         </button>
