@@ -5,10 +5,10 @@ const setFilterOptionInStorage = (filterOption) => {
 const filterAndDisplay = (tasks, updateTask, completionStatus) => {
   tasks.forEach((task) => {
     if (task.completed === completionStatus) {
-      task.isDisplayed = false;
+      task.isDisplayed = true;
       updateTask(task);
     } else {
-      task.isDisplayed = true;
+      task.isDisplayed = false;
       updateTask(task);
     }
   });
@@ -18,10 +18,11 @@ const handleFilterChange = (tasks, updateTask, filterOption) => {
   setFilterOptionInStorage(filterOption);
   switch (filterOption) {
     case "Completed":
-      filterAndDisplay(tasks, updateTask, false);
+      filterAndDisplay(tasks, updateTask, true);
+      tasks.filter((task) => task.completed);
       break;
     case "Incompleted":
-      filterAndDisplay(tasks, updateTask, true);
+      filterAndDisplay(tasks, updateTask, false);
       break;
     default:
       tasks.forEach((task) => {

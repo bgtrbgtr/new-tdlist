@@ -1,52 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AddTask, Header, TodoList, Modal } from ".";
 import { AppContext } from "../contexts/AppContext";
+import useTaskList from "../hooks/useTaskList";
+import { taskFunctions } from "../utils/taskUtils";
 
 function App() {
-  const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("tasks")) !== null
-      ? JSON.parse(localStorage.getItem("tasks"))
-      : []
-  );
-
-  useEffect(() => {
-    const storedTasks = JSON.parse(localStorage.getItem("tasks"));
-
-    if (storedTasks) {
-      setTasks(storedTasks);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
-  const addTask = (task) => {
-    setTasks([...tasks, task]);
-  };
-
-  const removeTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
-  };
-
-  const updateTask = (updatedTask) => {
-    const updatedTasks = tasks.map((task) => {
-      if (task.id === updatedTask.id) {
-        return updatedTask;
-      }
-      return task;
-    });
-    setTasks(updatedTasks);
-    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-  };
-
+  const { tasks, setTasks } = useTaskList();
   const [taskOnEdit, setTaskOnEdit] = useState(null);
+  const { addTask, removeTask, updateTask } = taskFunctions(tasks, setTasks);
 
   return (
     <>
       <AppContext.Provider
         value={{
           tasks,
+          setTasks,
           addTask,
           removeTask,
           updateTask,

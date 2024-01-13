@@ -8,6 +8,7 @@ import Modal from "./Modal";
 import TodoCounter from "./TodoCounter";
 import EditButton from "./EditButton";
 import FilterSelect from "./FilterSelect";
+import Button from "./Button";
 
 export {
   AddTask,
@@ -20,4 +21,5 @@ export {
   TodoCounter,
   EditButton,
   FilterSelect,
+  Button,
 };

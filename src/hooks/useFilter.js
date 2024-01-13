@@ -6,7 +6,7 @@ const useFilter = () => {
   const { tasks, updateTask } = useContext(AppContext);
 
   const [filterOption, setFilterOption] = useState(
-    JSON.parse(localStorage.getItem("filterOption")) !== null
+    localStorage.getItem("filterOption") !== "undefined"
       ? JSON.parse(localStorage.getItem("filterOption"))
       : "Default"
   );
@@ -17,6 +17,7 @@ const useFilter = () => {
     } else {
       handleFilterChange(tasks, updateTask, "Default");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterOption]);
 
   return { filterOption, setFilterOption };
